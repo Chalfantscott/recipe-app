@@ -3,21 +3,23 @@
     height: auto;
     border-radius: 50%;
     float: left;
- }
- 
- .login-header-left {
+}
+
+.login-header-left {
     margin: 60px;
     margin-top: 0;
- }
- .login-tile {
+}
+.login-tile {
+
     width: 300px;
     float: right;
     margin-right: 60px;
     border: 1px solid grey;
     border-radius: 5px;
     padding: 20px; 
- }
- h6 {
+}
+h6 {
+
     width: 100px;
     padding: 21.5px;
     background-color: rgb(255, 196, 86);
@@ -26,7 +28,14 @@
     font-family: serif;
     font-weight: bolder;
     color: black;
- }
- .login-icon {
+
+}
+.login-icon {
     margin-bottom: 10px;
- }
+}
+
+
+
+
+
+
