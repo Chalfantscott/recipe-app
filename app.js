@@ -6,6 +6,7 @@ const logger = require('morgan');
 const dotenv = require('dotenv');
 
 const apiRouter = require('./routes/api');
+const setupAuth = require('./auth');
 
 dotenv.load();
 
@@ -21,6 +22,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'client/build')));
 
+setupAuth();
+
+app.use('/api', apiRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
