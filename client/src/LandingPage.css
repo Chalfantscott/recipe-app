@@ -17,18 +17,12 @@
     height: 300px;
     background-color: rgb(74, 74, 252);
 }
-.header a {
-    margin-left: 40px;
-}
-.header a:hover {
-    color: orange;
-}
-
-.header a:active {
-    color: red;
-}
 .backgroundimage {
     width: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
     height: 800px;
 }
 .Landingpage-container {
@@ -36,12 +30,31 @@
 }
 .text-block {
     position: absolute;
-    top: 8px;
-    right: 16px;
+    top: 50%;
+    right: 50%;
     width: 300px;
     color: black;
-    font-family: sans-serif;  
+    font-family: Helvetica, sans-serif;  
 }
 .text-block h1 {
     font-weight: bolder;
+    
+}
+.tiles {
+    height: 400px;
+}
+#App-Name {
+    font-size: 8vw;
+}
+Button {
+    margin: 10px;
+}
+#introduction-row {
+    height: 150px;
+}
+#introduction-left {
+    top: 50%;
+}
+#introduction-right {
+    top: 50%;
 }

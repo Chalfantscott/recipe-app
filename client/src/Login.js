@@ -1,35 +1,49 @@
 import React, { Component } from 'react';
 import './Login.css';
 import { Button, FormGroup } from 'react-bootstrap';
+import Tile from './Tile.js';
+import LandingPage from './LandingPage';
 
 class Login extends Component {
+
+    handleOnClick = (event) => {
+
+        let email = event.target.email.value;
+       
+        console.log("email");
+    }
+
     render() {
         return (
-            <div>
-                <div className="login-header-left">
-                    <img src={require("./katie-smith-104748-unsplash.jpg")} alt="background_picture" className="login-backgroundimage"/>
-                </div>
-                    <div className="login-tile-border">
-                        <div className="login-tile">
-                            <div className="login-icon"><h6>SLOSH <br/>AND <br/>NOSH</h6></div>
-                            <FormGroup>
-                                <input type="email" className="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter Email"></input>
-                            </FormGroup>
-                            <FormGroup>
-                                <input type="Full Name" className="form-control" id="InputFullname" aria-describedby="emailHelp" placeholder="Enter Full Name"></input>
-                            </FormGroup>
-                            <FormGroup>
-                                <input type="Username" className="form-control" id="InputUsername" aria-describedby="emailHelp" placeholder="Enter Username"></input>
-                            </FormGroup>
-                            <FormGroup>
-                                <input type="password" className="form-control" id="InputPassword" aria-describedby="emailHelp" placeholder="Enter Password"></input>
-                            </FormGroup>
-                <Button bsStyle="primary" onClick={() => alert("figure this out")}>Sign up</Button>
+                <div className="container">
+                    <div className="row">
+                        <div className="col">
+                                <div className="login-tile">
+                                    <div className="login-icon"><h6>SLOSH <br/>AND <br/>NOSH</h6></div>
+                                    <FormGroup>
+                                        <input type="text" name="email" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter Email"></input>
+                                    </FormGroup>
+                                    <FormGroup>
+                                        <input type="fullname" name="fullname" id="InputFullname" aria-describedby="emailHelp" placeholder="Enter Full Name"></input>
+                                    </FormGroup>
+                                    <FormGroup>
+                                        <input type="username" name="username" id="InputUsername" aria-describedby="emailHelp" placeholder="Enter Username"></input>
+                                    </FormGroup>
+                                    <FormGroup>
+                                        <input type="password" name="password" id="InputPassword" aria-describedby="emailHelp" placeholder="Enter Password"></input>
+                                    </FormGroup>
+                                    <Button bsStyle="primary" onClick={(event) => this.handleOnClick(event)}>Sign up</Button>
+                                </div>
                         </div>
                     </div>
-            </div>
+
+                    
+
+                </div>
         )
     }
 }
 
 export default Login;
+
+
