@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './LandingPage.css';
+import { Link } from 'react-router-dom';
+import Login from './Login.js';
 import Tile from './Tile';
-import { Button } from 'react-bootstrap';
 
 class LandingPage extends Component {
     constructor(props) {
@@ -25,8 +26,12 @@ class LandingPage extends Component {
             ]
         }
     }
+    
+
 
     render() {
+
+
         return (
         <div className="LandingPage-container">
             <img src={require("./brooke-lark-385507-unsplash.jpg")} alt="background_picture" className="backgroundimage"/>
@@ -37,8 +42,8 @@ class LandingPage extends Component {
             <div className="tiles">
                 {this.state.tiles.map(tile => <Tile data={tile} />)}
                 <br />
-                <Button bsStyle="primary">Sign up</Button>
-                <Button bsStyle="primary">Log in</Button>
+                <Link to='./login' Component={Login}>Sign up</Link>
+                <Link to='./login' Component={Login}>Login</Link>
             </div>
             <div className="introduction">
                 <div className="container">
@@ -56,5 +61,6 @@ class LandingPage extends Component {
         )
     }
 }
+
 
 export default LandingPage;

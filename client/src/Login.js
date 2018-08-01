@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import './Login.css';
 import { Button, FormGroup } from 'react-bootstrap';
-import Tile from './Tile.js';
-import LandingPage from './LandingPage';
+
+
 
 class Login extends Component {
 
     handleOnClick = (event) => {
 
-        let email = event.target.email.value;
+        let email = document.getElementById('InputEmail').value
+        let fullname = document.getElementById('InputFullname').value
        
-        console.log("email");
+        console.log(email, fullname);
     }
 
     render() {
@@ -20,6 +21,8 @@ class Login extends Component {
                         <div className="col">
                                 <div className="login-tile">
                                     <div className="login-icon"><h6>SLOSH <br/>AND <br/>NOSH</h6></div>
+                                    <Button bsStyle="primary">Log in with Github</Button>
+                                    <h5>———— or ————</h5>
                                     <FormGroup>
                                         <input type="text" name="email" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter Email"></input>
                                     </FormGroup>
@@ -34,11 +37,12 @@ class Login extends Component {
                                     </FormGroup>
                                     <Button bsStyle="primary" onClick={(event) => this.handleOnClick(event)}>Sign up</Button>
                                 </div>
+                                <div className="login-tile">
+                                    <h5>Already have an account?</h5>
+                                    <Button bsStyle="primary">Login</Button>
+                                </div>
                         </div>
                     </div>
-
-                    
-
                 </div>
         )
     }

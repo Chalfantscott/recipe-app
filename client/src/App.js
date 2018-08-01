@@ -5,6 +5,7 @@ import LandingPage from './LandingPage.js';
 import Login from './Login.js';
 import { Route, Switch } from 'react-router-dom'; 
 import Tile from './Tile.js';
+import MyRecipes from './MyRecipes';
 
 class App extends Component {
   render() {
@@ -12,8 +13,9 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route path='/login' component={Login}/>
-          <Route path='/Home' component={LandingPage}/>
-          <Route path='/Tile' component={Tile}/>
+          <Route path='/home' component={LandingPage}/>
+          <Route path='/tile' component={Tile}/>
+          <Route path='/myrecipebook' component={MyRecipes} />
         </Switch>
 
       </div>
