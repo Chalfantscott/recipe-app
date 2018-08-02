@@ -34,16 +34,18 @@ class LandingPage extends Component {
 
         return (
         <div className="LandingPage-container">
+            <div className="header">
+                <Link to='./login' Component={Login}>Sign up</Link>
+                <Link to='./login' Component={Login}>Login</Link>
+            </div>
             <img src={require("./brooke-lark-385507-unsplash.jpg")} alt="background_picture" className="backgroundimage"/>
             <div className="text-block">
                 <h1 id="App-Name">SLOSH/NOSH</h1>
+                <h5 className="logo-dash">________________________________________________</h5>
                 <h1 id="App-Name-Subtitle">a recipe sharing application</h1>
             </div>
             <div className="tiles">
                 {this.state.tiles.map(tile => <Tile data={tile} />)}
-                <br />
-                <Link to='./login' Component={Login}>Sign up</Link>
-                <Link to='./login' Component={Login}>Login</Link>
             </div>
             <div className="introduction">
                 <div className="container">
