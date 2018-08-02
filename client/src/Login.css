@@ -1,22 +1,21 @@
-.login-backgroundimage {
-    max-width: 40%;
-    height: auto;
-    border-radius: 50%;
-    float: left;
-}
-
-.login-header-left {
-    margin: 60px;
-    margin-top: 0;
+.Login-background {
+    background-color:rgb(245, 245, 245);
 }
 .login-tile {
+<<<<<<< HEAD
+    border: 0.5px solid rgb(194, 194, 194);
+=======
 
     width: 300px;
     float: right;
     margin-right: 60px;
     border: 1px solid grey;
+>>>>>>> bb94d36e161b9be1904a263fc58ec73d1fba8efc
     border-radius: 5px;
     padding: 20px; 
+    width: 30%;
+    margin: 20px auto;
+    background-color: white;
 }
 h6 {
 
@@ -26,12 +25,19 @@ h6 {
     border-radius: 50%;
     margin: auto;
     font-family: serif;
+<<<<<<< HEAD
+    font-weight: bold;
+=======
     font-weight: bolder;
     color: black;
 
+>>>>>>> bb94d36e161b9be1904a263fc58ec73d1fba8efc
 }
 .login-icon {
     margin-bottom: 10px;
+}
+.login-tile h5 {
+    color: rgb(126, 126, 126);
 }
 
 

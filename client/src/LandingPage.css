@@ -2,46 +2,86 @@
     width: 100%;
     height: 30px;
 }
+#App-Name {
+    font-size: 7vw;
+    margin-bottom: 0;
+}
 .main-content {
     width: 100%;
     height: 300px;
-    background-color:bisque;
 }
 .about-content {
     width: 100%;
     height: 300px;
-    background-color: white;
+}
+.backgroundimage {
+    max-width: 90%;
+    margin-top: 40px;
+    height: auto;
+    width: auto\9;  
 }
 .other-div{
     width: 100%;
     height: 300px;
     background-color: rgb(74, 74, 252);
 }
-.header a {
-    margin-left: 40px;
-}
-.header a:hover {
-    color: orange;
-}
-
-.header a:active {
-    color: red;
-}
-.backgroundimage {
-    width: 100%;
-    height: 800px;
-}
 .Landingpage-container {
     position: relative;
 }
 .text-block {
     position: absolute;
-    top: 8px;
-    right: 16px;
-    width: 300px;
-    color: black;
-    font-family: sans-serif;  
+    top: 60%;
+    left: 50%;
+    transform: translate( -50%, -50% );
+    text-align: center;
+    color: rgb(56, 55, 55);
+    font-family: Helvetica, sans-serif;  
 }
 .text-block h1 {
     font-weight: bolder;
+}
+.tiles {
+    max-width: 90%;
+    margin: 0 auto;
+    background-color: bisque;
+}
+.tile {
+    justify-content: center;
+    margin: 30px;
+    padding: 20px;
+    display: inline-block;
+    margin-top: 60px;
+}
+@media (max-width: 700px) {
+    .tile {
+        width: 80%;
+    }
+}
+Button {
+    margin: 0 10px;
+}
+
+#introduction-row {
+    height: 150px;
+}
+#introduction-left {
+    top: 50%;
+}
+#introduction-right {
+    top: 50%;
+}
+@media (max-width: 320px) {
+    .tiles {
+        width: 100%;
+    }
+}
+a {
+    border: 1px black solid;
+    color: black;
+    margin: 15px 60px 0 30px;
+    font-size: 20px;
+    float: right;
+}
+a:hover { 
+    text-decoration: none; 
 }
