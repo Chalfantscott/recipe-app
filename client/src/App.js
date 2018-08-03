@@ -7,6 +7,7 @@ import { Route, Switch } from 'react-router-dom';
 import Tile from './Tile.js';
 import MyRecipes from './MyRecipes';
 import RecipeBook from './RecipeBook';
+import Login2 from './login.jsx';
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
           <Route path='/tile' component={Tile}/>
           <Route path='/apirecipes' component={MyRecipes} />
           <Route path='/myrecipebook' component={RecipeBook}/>
+          <Route path='/login2' component={Login2}/>
         </Switch>
 
       </div>

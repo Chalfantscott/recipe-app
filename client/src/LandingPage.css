@@ -29,9 +29,9 @@
     position: relative;
 }
 .text-block {
-    position: absolute;
-    top: 60%;
+    top: 70%;
     left: 50%;
+    position: absolute;
     transform: translate( -50%, -50% );
     text-align: center;
     color: rgb(56, 55, 55);
@@ -76,7 +76,6 @@ Button {
     }
 }
 a {
-    border: 1px black solid;
     color: black;
     margin: 15px 60px 0 30px;
     font-size: 20px;

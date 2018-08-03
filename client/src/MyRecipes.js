@@ -30,14 +30,17 @@ class MyRecipes extends Component {
          console.log(this.state.recipes[0]);
        return (
            <div>
+               <header><h4>SLOSH/NOSH</h4></header>
+               <hr/>
+                <p>search for recipes</p>
+                <input></input>
+               
                <ul>
-                   { this.state.recipes.map(recipe => <li><a href={recipe.sourceUrl}>{recipe.title}</a></li>)}
+                   { this.state.recipes.map(recipe => <li><a href={recipe.sourceUrl}>{recipe.title}</a><img src={recipe.image}/></li>)}
                </ul>
 
                <div className='button__container'>
-                   <button className='button' onClick={this.handleClick}>
-                   Click Me
-                   </button>
+                   
                </div>
            </div>
        )
