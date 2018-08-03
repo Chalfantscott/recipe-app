@@ -5,18 +5,15 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const dotenv = require('dotenv');
 
-<<<<<<< HEAD
 var api = require('./routes/index.js');
 
-var app = express();
-=======
+
 const apiRouter = require('./routes/api');
+const apiMailRouter = require('./routes/api/mail');
 const setupAuth = require('./auth');
 
-dotenv.load();
 
 const app = express();
->>>>>>> bb94d36e161b9be1904a263fc58ec73d1fba8efc
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,9 +25,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-setupAuth();
+setupAuth(app);
 
 app.use('/api', apiRouter);
+app.use('/api/mail', apiMailRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
