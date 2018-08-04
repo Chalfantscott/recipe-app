@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './tile.css';
+import { Link } from 'react-router-dom';
 
 class Tile extends Component {
     constructor(props) {
@@ -12,7 +13,9 @@ class Tile extends Component {
         return(
             
                 <div className="tile">
-                    <h3 className="tile-title">{this.state.data.title}</h3>
+                    <Link to='./apirecipes'>
+                        <h3 className="tile-title">{this.state.data.title}</h3>
+                    </Link>
                     <p className="tile-copy">{this.state.data.icon}</p>
                 </div>
             

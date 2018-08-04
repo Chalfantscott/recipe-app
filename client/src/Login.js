@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import './Login.css';
 import { Button, FormGroup } from 'react-bootstrap';
@@ -5,6 +6,17 @@ import { Button, FormGroup } from 'react-bootstrap';
 
 
 class Login extends Component {
+    constructor(props) {
+        super(props);
+
+        this.login = this.login.bind(this);
+        this.logout = this.logout.bind(this);
+
+        this.state = {
+            user: null,
+            signupFormVisible: false,
+        };   
+    }
 
     handleOnClick = (event) => {
 
@@ -24,12 +36,6 @@ class Login extends Component {
                                         <div className="login-icon"><h6>SLOSH <br/>AND <br/>NOSH</h6></div>
                                         <Button bsStyle="primary">Log in with Github</Button>
                                         <h5>———— or ————</h5>
-                                        <FormGroup>
-                                            <input type="text" name="email" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter Email"></input>
-                                        </FormGroup>
-                                        <FormGroup>
-                                            <input type="fullname" name="fullname" id="InputFullname" aria-describedby="emailHelp" placeholder="Enter Full Name"></input>
-                                        </FormGroup>
                                         <FormGroup>
                                             <input type="username" name="username" id="InputUsername" aria-describedby="emailHelp" placeholder="Enter Username"></input>
                                         </FormGroup>
@@ -51,5 +57,3 @@ class Login extends Component {
 }
 
 export default Login;
-
-

@@ -1,0 +1,31 @@
+.user-form Button {
+    margin: 20px;
+}
+.form-field label {
+    margin: 10px;
+}
+.login2-background-container {
+    position: relative;
+}
+.login-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+input {
+    border: 1px black solid;
+}
+.backgroundimage-login {
+    max-width: 90%;
+    margin-top: 40px;
+    height: auto;
+    width: auto\9; 
+}
+@media (max-width: 700px) {
+    .login-form {
+        width: 40%;
+        height: 60%
+    }
+}
+

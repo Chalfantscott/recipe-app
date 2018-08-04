@@ -5,6 +5,7 @@
 #App-Name {
     font-size: 7vw;
     margin-bottom: 0;
+    border-bottom: 1px solid black;
 }
 .main-content {
     width: 100%;
@@ -16,7 +17,7 @@
 }
 .backgroundimage {
     max-width: 90%;
-    margin-top: 40px;
+    margin-top: 10px;
     height: auto;
     width: auto\9;  
 }
@@ -70,6 +71,9 @@ Button {
 #introduction-right {
     top: 50%;
 }
+.introduction {
+    height: 300px;
+}
 @media (max-width: 320px) {
     .tiles {
         width: 100%;
@@ -83,4 +87,33 @@ a {
 }
 a:hover { 
     text-decoration: none; 
+}
+@media (max-width: 900px) {
+    #App-Name, #App-Name-Subtitle {
+        font-size: 200%;
+    } .text-block {
+        top: 50%;  
+    }
+}
+@media (max-width: 600px) {
+    #App-Name, #App-Name-Subtitle {
+        font-size: 150%;
+    } .text-block {
+        top: 50%;
+    }
+}
+.footer {
+    max-width: 90%;
+    margin: 0 auto;
+    height: 90px;
+    background-color: rgb(74, 70, 82);
+    margin-top: -50px;
+}
+.footer a {
+    float: left;
+    font-weight: bold;
+    min-height: 100%;
+}
+.footer a:hover {
+    color: white;
 }

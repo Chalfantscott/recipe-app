@@ -26,40 +26,43 @@ class LandingPage extends Component {
             ]
         }
     }
-    
-
 
     render() {
-
-
         return (
-        <div className="LandingPage-container">
-            <div className="header">
-                <Link to='./login' Component={Login}>Sign up</Link>
-                <Link to='./login' Component={Login}>Login</Link>
-            </div>
-            
-                <img src={require("./brooke-lark-385507-unsplash.jpg")} alt="background_picture" className="backgroundimage"/>
-                <div className="text-block">
-                    <h1 id="App-Name">SLOSH/NOSH</h1>
-                    <h5 className="logo-dash">________________________________________________</h5>
-                    <h1 id="App-Name-Subtitle">a recipe sharing application</h1>
+        <div>
+            <div className="LandingPage-container">
+                <div className="header">
+                    <Link to='./login' Component={Login}>Sign up</Link>
+                    <Link to='./login' Component={Login}>Login</Link>
                 </div>
-            
-            <div className="tiles">
-                {this.state.tiles.map(tile => <Tile data={tile} />)}
-            </div>
-            <div className="introduction">
-                <div className="container">
-                    <div className="row" id="introduction-row">
-                        <div className="col-6" id="introduction-left">
-                            <h1>What is Slosh and Nosh?</h1>
-                        </div>
-                        <div className="col-6" id="introduction-right">
-                            <h3>Slosh/Nosh is a modern-day recipe-sharing application that allows users to share and store their recipes in a more convenient place.</h3>
+                
+                    <img src={require("./brooke-lark-385507-unsplash.jpg")} alt="background_picture" className="backgroundimage"/>
+                    <div className="text-block">
+                        <h1 id="App-Name">SLOSH/NOSH</h1>
+                        <h1 id="App-Name-Subtitle">a recipe sharing application</h1>
+                    </div>
+                
+                <div className="tiles">
+                    {this.state.tiles.map(tile => 
+                    <Tile data={tile} />
+                    )}
+                </div>
+                <div className="introduction">
+                    <div className="container">
+                        <div className="row" id="introduction-row">
+                            <div className="col-6" id="introduction-left">
+                                <h1>What is Slosh and Nosh?</h1>
+                            </div>
+                            <div className="col-6" id="introduction-right">
+                                <h3>Slosh/Nosh is a modern-day recipe-sharing application that allows users to share and store their recipes in a more convenient place.</h3>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="footer">
+                <Link to='./login'>Contact us</Link>
+                <Link to='./login'>Help</Link>
             </div>
         </div>
         )
