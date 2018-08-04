@@ -20,11 +20,12 @@ class MyRecipes extends Component {
    }
    
    componentDidMount() {
-    axios.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?number=1&tags=vegetarian%2Cdessert")
-    .header("X-Mashape-Key", "QWQxjueQ0FmshU0oIdFFsH6cXzDMp1tDWbqjsnYkVz7dQyIzvi")
-    .end(function (result) {
-        console.log(result.status, result.headers, result.body);
-    })
+    axios.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?number=1&tags=vegetarian%2Cdessert",
+            {
+                headers: {
+                    "X-Mashape Key": "QWQxjueQ0FmshU0oIdFFsH6cXzDMp1tDWbqjsnYkVz7dQyIzvi"
+            }
+        })
         .then(res => {
            const recipes = res.data.recipes;
            this.setState({ recipes });
@@ -62,10 +63,11 @@ class MyRecipes extends Component {
      }
     search = (event) => {
         event.preventDefault();
-        axios.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?number=10&query=" + event.target.searchParams.value)
-        .header("X-Mashape-Key", "QWQxjueQ0FmshU0oIdFFsH6cXzDMp1tDWbqjsnYkVz7dQyIzvi")
-        .end(function (result) {
-            console.log(result.status, result.headers, result.body);
+        axios.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?number=10&query=" + event.target.searchParams.value,
+        {
+            headers: {
+                "X-Mashape Key": "QWQxjueQ0FmshU0oIdFFsH6cXzDMp1tDWbqjsnYkVz7dQyIzvi"
+            }
         })
         .then(res => {
             const recipes = res.data.recipes;
