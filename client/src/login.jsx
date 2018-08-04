@@ -32,7 +32,7 @@ class Login2 extends Component {
                         <Button bsStyle="primary" onClick={this.showSignupForm} disabled={this.state.signupFormVisible}>Register</Button>
                         <Button bsStyle="primary" onClick={this.showLoginForm} disabled={!this.state.signupFormVisible}>Login</Button>
                         {this.state.signupFormVisible ? (
-                            <FormGroup id="registerForm" onSubmit={this.register}>
+                            <form id="registerForm" onSubmit={this.register}>
                             <div className="login-icon"><h6>SLOSH <br/>AND <br/>NOSH</h6></div>
                                 <h2>Register</h2>
                                 <div className="form-field">
@@ -44,7 +44,7 @@ class Login2 extends Component {
                                     <input name="registerPassword" type="password" required />
                                 </div>
                                 <button className="btn btn-primary" type="submit">Register</button>
-                            </FormGroup>
+                            </form>
                         ) : (
                             <form id="loginForm" onSubmit={this.login}>
                                 <div className="login-icon"><h6>SLOSH <br/>AND <br/>NOSH</h6></div>

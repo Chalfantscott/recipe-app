@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './LandingPage.css';
 import { Link } from 'react-router-dom';
-import Login from './Login.js';
+import Login2 from './login.jsx';
 import Tile from './Tile';
 
 class LandingPage extends Component {
@@ -32,8 +32,8 @@ class LandingPage extends Component {
         <div>
             <div className="LandingPage-container">
                 <div className="header">
-                    <Link to='./login' Component={Login}>Sign up</Link>
-                    <Link to='./login' Component={Login}>Login</Link>
+                    <Link to='./login' Component={Login2}>Sign up</Link>
+                    <Link to='./login' Component={Login2}>Login</Link>
                 </div>
                 
                     <img src={require("./brooke-lark-385507-unsplash.jpg")} alt="background_picture" className="backgroundimage"/>
