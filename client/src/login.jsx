@@ -43,7 +43,7 @@ class Login2 extends Component {
                                     <label htmlFor="registerPassword">Password:</label>
                                     <input name="registerPassword" type="password" required />
                                 </div>
-                                <button bsStyle="primary" type="submit">Register</button>
+                                <button className="btn btn-primary" type="submit">Register</button>
                             </FormGroup>
                         ) : (
                             <form id="loginForm" onSubmit={this.login}>
@@ -57,7 +57,7 @@ class Login2 extends Component {
                                     <label htmlFor="password">Password:</label>
                                     <input name="password" type="password" required />
                                 </div>
-                                <button bsStyle="primary" type="submit">Login</button>
+                                <button className="btn btn-primary" type="submit">Login</button>
                             </form>
                         )}
                     </div>

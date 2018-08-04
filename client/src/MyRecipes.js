@@ -47,7 +47,7 @@ class MyRecipes extends Component {
                     <div className="form-field">
                         <input name="searchParams" type="text" />
                     </div>
-                    <button bsStyle="primary" type="submit">Search</button>
+                    <button className="btn btn-primary" type="submit">Search</button>
                 </form>
                 
                     { this.state.recipes.map(recipe => 
