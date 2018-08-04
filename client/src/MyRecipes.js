@@ -4,6 +4,7 @@ import { Card, CardImg, CardText, CardBody,
     CardTitle, Button } from 'reactstrap';
 import './MyRecipes.css';
 import { Link } from 'react-router-dom';
+import { FormGroup } from 'react-bootstrap';
 
 class MyRecipes extends Component {
    constructor () {
@@ -19,12 +20,12 @@ class MyRecipes extends Component {
    }
    
    componentDidMount() {
-       axios.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?number=2&tags=vegetarian%2Cdessert", 
-       { headers: {
-        'X-Mashape-Key': 'ap8G36dpBcmshgicwH4BqkCd5xOPp16uGpKjsnrhtzJVZWrOyK'
-       }
+    axios.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?number=1&tags=vegetarian%2Cdessert")
+    .header("X-Mashape-Key", "QWQxjueQ0FmshU0oIdFFsH6cXzDMp1tDWbqjsnYkVz7dQyIzvi")
+    .end(function (result) {
+        console.log(result.status, result.headers, result.body);
     })
-         .then(res => {
+        .then(res => {
            const recipes = res.data.recipes;
            this.setState({ recipes });
          })
@@ -40,18 +41,18 @@ class MyRecipes extends Component {
                </header>
                <hr/>
                 <p1 className="searchRecipes">search for recipes</p1>
-                <form>
-                    <input type="text"></input>
-                    <Button bsStyle="primary">Search</Button>
-                </form>
+                <FormGroup id="recipeSearch" onSubmit={this.search}>
+                    <input name="searchParams" type="text" />
+                    <Button bsStyle="primary" type="submit">Search</Button>
+                </FormGroup>
                 
                     { this.state.recipes.map(recipe => 
                         <div>
                             <Card className="apiRecipeCard">
                                 <CardImg top width="100%" src={recipe.image} alt="Card image cap" />
-                                <CardText>Ready in : {recipe.readyInMinutes} minutes</CardText>
                                 <CardBody>
-                                <CardTitle><a href={recipe.sourceUrl}>{recipe.title}</a></CardTitle>
+                                    <CardTitle><a href={recipe.sourceUrl}>{recipe.title}</a></CardTitle>
+                                    <CardText>Ready in : {recipe.readyInMinutes} minutes</CardText>
                                 </CardBody>
                             </Card>
                     </div>)}
@@ -59,6 +60,19 @@ class MyRecipes extends Component {
            </div>
        )
      }
+    search = (event) => {
+        event.preventDefault();
+        axios.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?number=10&query=" + event.target.searchParams.value)
+        .header("X-Mashape-Key", "QWQxjueQ0FmshU0oIdFFsH6cXzDMp1tDWbqjsnYkVz7dQyIzvi")
+        .end(function (result) {
+            console.log(result.status, result.headers, result.body);
+        })
+        .then(res => {
+            const recipes = res.data.recipes;
+            this.setState({ recipes });
+        })
+        console.log(this.state.recipes)
+    }
 }
 
 export default MyRecipes;
