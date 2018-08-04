@@ -27,8 +27,9 @@ class MyRecipes extends Component {
             }
         })
         .then(res => {
-           const recipes = res.data.recipes;
-           this.setState({ recipes });
+            const state = {...this.state};
+            state.recipes = res.data.results;
+            this.setState(state);
          })
          console.log(this.state.recipes)
    }
