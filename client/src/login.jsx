@@ -43,11 +43,11 @@ class Login2 extends Component {
                                     <label htmlFor="registerPassword">Password:</label>
                                     <input name="registerPassword" type="password" required />
                                 </div>
-                                <Button bsStyle="primary" type="submit">Register</Button>
+                                <button bsStyle="primary" type="submit">Register</button>
                             </FormGroup>
                         ) : (
                             <form id="loginForm" onSubmit={this.login}>
-                            <div className="login-icon"><h6>SLOSH <br/>AND <br/>NOSH</h6></div>
+                                <div className="login-icon"><h6>SLOSH <br/>AND <br/>NOSH</h6></div>
                                 <h2>Login</h2>
                                 <div className="form-field">
                                     <label htmlFor="username">Username:</label>
@@ -57,7 +57,7 @@ class Login2 extends Component {
                                     <label htmlFor="password">Password:</label>
                                     <input name="password" type="password" required />
                                 </div>
-                                <Button bsStyle="primary" type="submit">Login</Button>
+                                <button bsStyle="primary" type="submit">Login</button>
                             </form>
                         )}
                     </div>
@@ -81,6 +81,7 @@ class Login2 extends Component {
     }
 
     register = (event) => {
+        console.log('test');
         event.preventDefault();
         axios({
             method: 'post',

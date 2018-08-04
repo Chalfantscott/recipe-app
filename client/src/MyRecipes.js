@@ -20,7 +20,7 @@ class MyRecipes extends Component {
    }
    
    componentDidMount() {
-    axios.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?number=1&tags=vegetarian%2Cdessert",
+    axios.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?number=1&query=tasty",
             {
                 headers: {
                     "X-Mashape-Key": "QWQxjueQ0FmshU0oIdFFsH6cXzDMp1tDWbqjsnYkVz7dQyIzvi"
@@ -42,17 +42,17 @@ class MyRecipes extends Component {
                </header>
                <hr/>
                 <p1 className="searchRecipes">search for recipes</p1>
-                <FormGroup id="recipeSearch" onSubmit={this.search}>
+                <form id="recipeSearch" onSubmit={this.search}>
                     <div className="form-field">
                         <input name="searchParams" type="text" />
                     </div>
-                    <Button bsStyle="primary" type="submit">Search</Button>
-                </FormGroup>
+                    <button bsStyle="primary" type="submit">Search</button>
+                </form>
                 
                     { this.state.recipes.map(recipe => 
                         <div>
                             <Card className="apiRecipeCard">
-                                <CardImg top width="100%" src={recipe.image} alt="Card image cap" />
+                                <CardImg top width="100%" src={"https://spoonacular.com/recipeImages/" + recipe.image} alt="Card image cap" />
                                 <CardBody>
                                     <CardTitle><a href={recipe.sourceUrl}>{recipe.title}</a></CardTitle>
                                     <CardText>Ready in : {recipe.readyInMinutes} minutes</CardText>
@@ -72,11 +72,11 @@ class MyRecipes extends Component {
             }
         })
         .then(res => {
-            const recipes = res.data.recipes;
-            this.setState({ recipes });
+            const state = {...this.state};
+            state.recipes = res.data.results;
+            this.setState(state);
         })
-        console.log(this.state.recipes)
-        this.render();
+        
     }
 }
 
