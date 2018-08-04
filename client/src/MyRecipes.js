@@ -43,7 +43,9 @@ class MyRecipes extends Component {
                <hr/>
                 <p1 className="searchRecipes">search for recipes</p1>
                 <FormGroup id="recipeSearch" onSubmit={this.search}>
-                    <input name="searchParams" type="text" />
+                    <div className="form-field">
+                        <input name="searchParams" type="text" />
+                    </div>
                     <Button bsStyle="primary" type="submit">Search</Button>
                 </FormGroup>
                 
