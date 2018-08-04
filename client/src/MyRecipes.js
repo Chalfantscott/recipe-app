@@ -76,6 +76,7 @@ class MyRecipes extends Component {
             this.setState({ recipes });
         })
         console.log(this.state.recipes)
+        this.render();
     }
 }
 
