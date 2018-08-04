@@ -23,7 +23,7 @@ class MyRecipes extends Component {
     axios.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/random?number=1&tags=vegetarian%2Cdessert",
             {
                 headers: {
-                    "X-Mashape Key": "QWQxjueQ0FmshU0oIdFFsH6cXzDMp1tDWbqjsnYkVz7dQyIzvi"
+                    "X-Mashape-Key": "QWQxjueQ0FmshU0oIdFFsH6cXzDMp1tDWbqjsnYkVz7dQyIzvi"
             }
         })
         .then(res => {
@@ -66,7 +66,7 @@ class MyRecipes extends Component {
         axios.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?number=10&query=" + event.target.searchParams.value,
         {
             headers: {
-                "X-Mashape Key": "QWQxjueQ0FmshU0oIdFFsH6cXzDMp1tDWbqjsnYkVz7dQyIzvi"
+                "X-Mashape-Key": "QWQxjueQ0FmshU0oIdFFsH6cXzDMp1tDWbqjsnYkVz7dQyIzvi"
             }
         })
         .then(res => {
