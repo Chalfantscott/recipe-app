@@ -9,6 +9,7 @@ var api = require('./routes/index.js');
 
 
 const apiRouter = require('./routes/api');
+const apiSearchRouter = require('./routes/api/search');
 const apiMailRouter = require('./routes/api/mail');
 const setupAuth = require('./auth');
 
@@ -17,7 +18,7 @@ const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 setupAuth(app);
 
 app.use('/api', apiRouter);
+app.use('/api/search', apiSearchRouter);
 app.use('/api/mail', apiMailRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
