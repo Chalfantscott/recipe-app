@@ -7,6 +7,11 @@
     margin-bottom: 0;
     border-bottom: 1px solid black;
 }
+.homepage-header {
+    background-image: url('./brooke-lark-385507-unsplash.jpg');
+    background-size: cover;
+    height: 150vh;
+}
 .main-content {
     width: 100%;
     height: 300px;
@@ -14,12 +19,6 @@
 .about-content {
     width: 100%;
     height: 300px;
-}
-.backgroundimage {
-    max-width: 90%;
-    margin-top: 10px;
-    height: auto;
-    width: auto\9;  
 }
 .other-div{
     width: 100%;
@@ -42,7 +41,7 @@
     font-weight: bolder;
 }
 .tiles {
-    max-width: 90%;
+    max-width: 100%;
     margin: 0 auto;
     background-color: bisque;
 }
@@ -79,15 +78,6 @@ Button {
         width: 100%;
     }
 }
-a {
-    color: black;
-    margin: 15px 60px 0 30px;
-    font-size: 20px;
-    float: right;
-}
-a:hover { 
-    text-decoration: none; 
-}
 @media (max-width: 900px) {
     #App-Name, #App-Name-Subtitle {
         font-size: 200%;
@@ -101,19 +91,4 @@ a:hover {
     } .text-block {
         top: 50%;
     }
-}
-.footer {
-    max-width: 90%;
-    margin: 0 auto;
-    height: 90px;
-    background-color: rgb(74, 70, 82);
-    margin-top: -50px;
-}
-.footer a {
-    float: left;
-    font-weight: bold;
-    min-height: 100%;
-}
-.footer a:hover {
-    color: white;
 }

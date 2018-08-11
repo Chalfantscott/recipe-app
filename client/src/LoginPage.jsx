@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './login2.css';
-import { Button, FormGroup } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
-class Login2 extends Component {
+
+class LoginPage extends Component {
 
     constructor(props) {
         super(props);
@@ -25,14 +26,14 @@ class Login2 extends Component {
                 {this.state.user ? (
                     <div className="user">
                         <span className="username">User: {this.state.user.username}</span>
-                        <Button bsStyle="primary" onClick={this.logout}>Log Out</Button>
+                        <button onClick={this.logout}>Log Out</button>
                     </div>
                 ) : (
                     <div className="user-form">
-                        <Button bsStyle="primary" onClick={this.showSignupForm} disabled={this.state.signupFormVisible}>Register</Button>
-                        <Button bsStyle="primary" onClick={this.showLoginForm} disabled={!this.state.signupFormVisible}>Login</Button>
+                        <button onClick={this.showSignupForm} disabled={this.state.signupFormVisible}>Register</button>
+                        <button onClick={this.showLoginForm} disabled={!this.state.signupFormVisible}>Login</button>
                         {this.state.signupFormVisible ? (
-                            <FormGroup id="registerForm" onSubmit={this.register}>
+                            <form id="registerForm" onSubmit={this.register}>
                             <div className="login-icon"><h6>SLOSH <br/>AND <br/>NOSH</h6></div>
                                 <h2>Register</h2>
                                 <div className="form-field">
@@ -43,8 +44,8 @@ class Login2 extends Component {
                                     <label htmlFor="registerPassword">Password:</label>
                                     <input name="registerPassword" type="password" required />
                                 </div>
-                                <Button bsStyle="primary" type="submit">Register</Button>
-                            </FormGroup>
+                                <button type="submit">Register</button>
+                            </form>
                         ) : (
                             <form id="loginForm" onSubmit={this.login}>
                             <div className="login-icon"><h6>SLOSH <br/>AND <br/>NOSH</h6></div>
@@ -57,7 +58,7 @@ class Login2 extends Component {
                                     <label htmlFor="password">Password:</label>
                                     <input name="password" type="password" required />
                                 </div>
-                                <Button bsStyle="primary" type="submit">Login</Button>
+                                <button type="submit">Login</button>
                             </form>
                         )}
                     </div>
@@ -114,6 +115,7 @@ class Login2 extends Component {
                 user: res.data.user,
                 showSignupForm: false,
             })
+            this.props.setLoggedIn(res.data.user)
             console.log(res);
         })
         .catch((res) => {
@@ -130,6 +132,7 @@ class Login2 extends Component {
             this.setState({
                 user: null,
             })
+            this.props.setLoggedOut()
         })
         .catch((res) => {
             console.log(res);
@@ -137,4 +140,4 @@ class Login2 extends Component {
     }
 }
 
-export default Login2;
+export default LoginPage;

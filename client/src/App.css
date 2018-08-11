@@ -4,3 +4,14 @@
 .tiles {
   background-color: white;
 }
+.main-header {
+  height: 50px;
+}
+.main-header a {
+  margin: 10px;
+  margin-right: 40px;
+}
+.main-header a:hover {
+  text-decoration: underline;
+  color: white;
+}

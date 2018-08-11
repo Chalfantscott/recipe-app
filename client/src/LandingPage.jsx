@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './LandingPage.css';
 import { Link } from 'react-router-dom';
-import Login from './Login.js';
 import Tile from './Tile';
 
 class LandingPage extends Component {
@@ -31,16 +30,12 @@ class LandingPage extends Component {
         return (
         <div>
             <div className="LandingPage-container">
-                <div className="header">
-                    <Link to='./login' Component={Login}>Sign up</Link>
-                    <Link to='./login' Component={Login}>Login</Link>
-                </div>
-                
-                    <img src={require("./brooke-lark-385507-unsplash.jpg")} alt="background_picture" className="backgroundimage"/>
+                <div className="homepage-header">
                     <div className="text-block">
-                        <h1 id="App-Name">SLOSH/NOSH</h1>
+                        <h1 id="App-Name">Like Mama Made</h1>
                         <h1 id="App-Name-Subtitle">a recipe sharing application</h1>
                     </div>
+                </div>
                 
                 <div className="tiles">
                     {this.state.tiles.map(tile => 
@@ -54,15 +49,11 @@ class LandingPage extends Component {
                                 <h1>What is Slosh and Nosh?</h1>
                             </div>
                             <div className="col-6" id="introduction-right">
-                                <h3>Slosh/Nosh is a modern-day recipe-sharing application that allows users to share and store their recipes in a more convenient place.</h3>
+                                <h3>Like Mama Made is a modern-day recipe-sharing application that allows users to share and store their recipes in a more convenient place.</h3>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="footer">
-                <Link to='./login'>Contact us</Link>
-                <Link to='./login'>Help</Link>
             </div>
         </div>
         )
