@@ -4,6 +4,7 @@ import { Card, CardImg, CardText, CardBody,
     CardTitle } from 'reactstrap';
 import './MyRecipes.css';
 import { Link } from 'react-router-dom';
+import { FormGroup } from 'react-bootstrap';
 
 class MyRecipes extends Component {
    constructor () {
@@ -19,7 +20,16 @@ class MyRecipes extends Component {
    }
    
    componentDidMount() {
+<<<<<<< HEAD
     axios.get("/api/search?number=1&query=tasty")
+=======
+    axios.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?number=1&query=tasty",
+            {
+                headers: {
+                    "X-Mashape-Key": "QWQxjueQ0FmshU0oIdFFsH6cXzDMp1tDWbqjsnYkVz7dQyIzvi"
+            }
+        })
+>>>>>>> 21fc35ad318f9a5374581798ca2ffcefdb2289c8
         .then(res => {
             const state = {...this.state};
             state.recipes = res.data.results;
@@ -55,7 +65,16 @@ class MyRecipes extends Component {
      }
     search = (event) => {
         event.preventDefault();
+<<<<<<< HEAD
         axios.get("/api/search?number=10&query=" + event.target.searchParams.value)
+=======
+        axios.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?number=10&query=" + event.target.searchParams.value,
+        {
+            headers: {
+                "X-Mashape-Key": "QWQxjueQ0FmshU0oIdFFsH6cXzDMp1tDWbqjsnYkVz7dQyIzvi"
+            }
+        })
+>>>>>>> 21fc35ad318f9a5374581798ca2ffcefdb2289c8
         .then(res => {
             const state = {...this.state};
             state.recipes = res.data.results;

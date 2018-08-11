@@ -44,11 +44,15 @@ class LoginPage extends Component {
                                     <label htmlFor="registerPassword">Password:</label>
                                     <input name="registerPassword" type="password" required />
                                 </div>
+<<<<<<< HEAD:client/src/LoginPage.jsx
                                 <button type="submit">Register</button>
+=======
+                                <button className="btn btn-primary" type="submit">Register</button>
+>>>>>>> 21fc35ad318f9a5374581798ca2ffcefdb2289c8:client/src/login.jsx
                             </form>
                         ) : (
                             <form id="loginForm" onSubmit={this.login}>
-                            <div className="login-icon"><h6>SLOSH <br/>AND <br/>NOSH</h6></div>
+                                <div className="login-icon"><h6>SLOSH <br/>AND <br/>NOSH</h6></div>
                                 <h2>Login</h2>
                                 <div className="form-field">
                                     <label htmlFor="username">Username:</label>
@@ -58,7 +62,11 @@ class LoginPage extends Component {
                                     <label htmlFor="password">Password:</label>
                                     <input name="password" type="password" required />
                                 </div>
+<<<<<<< HEAD:client/src/LoginPage.jsx
                                 <button type="submit">Login</button>
+=======
+                                <button className="btn btn-primary" type="submit">Login</button>
+>>>>>>> 21fc35ad318f9a5374581798ca2ffcefdb2289c8:client/src/login.jsx
                             </form>
                         )}
                     </div>
@@ -82,6 +90,7 @@ class LoginPage extends Component {
     }
 
     register = (event) => {
+        console.log('test');
         event.preventDefault();
         axios({
             method: 'post',

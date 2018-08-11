@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './LandingPage.css';
 import { Link } from 'react-router-dom';
+<<<<<<< HEAD:client/src/LandingPage.jsx
+=======
+import Login2 from './login.jsx';
+>>>>>>> 21fc35ad318f9a5374581798ca2ffcefdb2289c8:client/src/LandingPage.js
 import Tile from './Tile';
 
 class LandingPage extends Component {
@@ -30,7 +34,16 @@ class LandingPage extends Component {
         return (
         <div>
             <div className="LandingPage-container">
+<<<<<<< HEAD:client/src/LandingPage.jsx
                 <div className="homepage-header">
+=======
+                <div className="header">
+                    <Link to='./login' Component={Login2}>Sign up</Link>
+                    <Link to='./login' Component={Login2}>Login</Link>
+                </div>
+                
+                    <img src={require("./brooke-lark-385507-unsplash.jpg")} alt="background_picture" className="backgroundimage"/>
+>>>>>>> 21fc35ad318f9a5374581798ca2ffcefdb2289c8:client/src/LandingPage.js
                     <div className="text-block">
                         <h1 id="App-Name">Like Mama Made</h1>
                         <h1 id="App-Name-Subtitle">a recipe sharing application</h1>
