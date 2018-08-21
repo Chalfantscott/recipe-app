@@ -1,0 +1,9 @@
+.info-box {
+    margin: 30px;
+    font-weight: bold;
+}
+.about-container {
+    background-image: url("brooke-lark-295590-unsplash.jpg");
+    background-size: cover;
+    height: 70vh;
+}

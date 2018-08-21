@@ -12,6 +12,7 @@ const apiRouter = require('./routes/api');
 const apiSearchRouter = require('./routes/api/search');
 const apiMailRouter = require('./routes/api/mail');
 const setupAuth = require('./auth');
+const apiRecipeRouter = require('./routes/api/recipes');
 
 
 const app = express();
@@ -28,9 +29,11 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 setupAuth(app);
 
+
 app.use('/api', apiRouter);
 app.use('/api/search', apiSearchRouter);
 app.use('/api/mail', apiMailRouter);
+app.use('/api/recipes', apiRecipeRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

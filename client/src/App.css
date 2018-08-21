@@ -1,6 +1,14 @@
 .App {
   text-align: center;
 }
+.app-title-header {
+  float: left;
+  color: red;
+  margin-left: 20px;
+  font-family: 'Bradley Hand', cursive;
+  font-weight: bolder;
+}
+.app
 .tiles {
   background-color: white;
 }
@@ -8,10 +16,21 @@
   height: 50px;
 }
 .main-header a {
-  margin: 10px;
+  margin-right: 10px;
   margin-right: 40px;
 }
 .main-header a:hover {
   text-decoration: underline;
-  color: white;
+  color: red;
+  text-decoration: none;
+
+}
+.main-header a {
+ color: rgb(117, 117, 117);
+ padding: 6px;
+ float: right;
+ font-weight: bold;
+}
+.footer a {
+  margin: 20px;
 }

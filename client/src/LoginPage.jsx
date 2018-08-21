@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './login2.css';
-import { Button } from 'react-bootstrap';
+import './LoginPage.css';
+import Tile from './Tile';
 
 
 class LoginPage extends Component {
@@ -15,13 +15,26 @@ class LoginPage extends Component {
         this.state = {
             user: null,
             signupFormVisible: false,
+            tiles: [
+                {
+                    title: 'Find Recipes',
+                    icon: <img src={require("./search.png")} alt="Find" />
+                },
+                {
+                    title: 'Share Recipes',
+                    icon: <img src={require("./management.png")} alt="Share" />
+                },
+                {
+                    title: 'Save Recipes',
+                    icon: <img src={require("./writing.png")} alt="Save" />
+                }
+            ]
         };
     }
 
     render() {
         return (
         <div className="login2-background-container">
-            <img src={require("./brooke-lark-385507-unsplash.jpg")} alt="background_picture" className="backgroundimage-login"/>
             <div className="login-form">
                 {this.state.user ? (
                     <div className="user">
@@ -34,7 +47,6 @@ class LoginPage extends Component {
                         <button onClick={this.showLoginForm} disabled={!this.state.signupFormVisible}>Login</button>
                         {this.state.signupFormVisible ? (
                             <form id="registerForm" onSubmit={this.register}>
-                            <div className="login-icon"><h6>SLOSH <br/>AND <br/>NOSH</h6></div>
                                 <h2>Register</h2>
                                 <div className="form-field">
                                     <label htmlFor="registerUsername">Username:</label>
@@ -48,7 +60,6 @@ class LoginPage extends Component {
                             </form>
                         ) : (
                             <form id="loginForm" onSubmit={this.login}>
-                                <div className="login-icon"><h6>SLOSH <br/>AND <br/>NOSH</h6></div>
                                 <h2>Login</h2>
                                 <div className="form-field">
                                     <label htmlFor="username">Username:</label>
@@ -65,6 +76,11 @@ class LoginPage extends Component {
                 )
                 }
             </div>
+            <div className="tiles">
+                    {this.state.tiles.map(tile => 
+                    <Tile data={tile} />
+                    )}
+                </div>
         </div>
         );
     }
@@ -108,7 +124,7 @@ class LoginPage extends Component {
             url: '/auth/login',
             data: {
                 username: event.target.username.value,
-                password: event.target.password.value,
+                password: event.target.password.value,                
             }
         })
         .then((res) => {
@@ -118,6 +134,8 @@ class LoginPage extends Component {
             })
             this.props.setLoggedIn(res.data.user)
             console.log(res);
+        })
+        .then((res) => {
         })
         .catch((res) => {
             console.log(res);
