@@ -10,7 +10,15 @@ router.post('/save', function(req, res, next) {
     })
 });
 router.get('/list', function(req, res, next) {
-    
+    models.Recipe.findAll().then(recipe => {
+        res.json(recipe)
+    }).catch(err => {
+        console.error(err)
+    })
 })
+
+
+
+
 
 module.exports = router;

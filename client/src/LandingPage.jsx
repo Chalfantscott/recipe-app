@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './LandingPage.css';
 import Tile from './Tile';
 import axios from 'axios'
-import { Container, Row, Col, Card, CardImg, CardText, CardBody,
+import { CardColumns, Container, Row, Col, Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button } from 'reactstrap';
 
 
@@ -16,16 +16,23 @@ class LandingPage extends Component {
         this.handleClick = this.handleClick.bind(this)
         this.addRecipe = this.addRecipe.bind(this)
    }
+
    handleClick() {
         console.log("handled this click");
 }
-
     addRecipe() {
         console.log(this.state)
 }
+    goToRecipe = (id) => {
+        axios.get(`/api/search/go?id=${id}`)
+        .then(res => {
+            window.location=res.data;
+        })
+    }
     componentDidMount() {
-        axios.get("/api/search?number=1&query=tasty")
+        axios.get("/api/search?number=2&query=tasty")
             .then(res => {
+                console.log(res.data)
                 const state = {...this.state};
                 state.recipes = res.data.results;
                 this.setState(state);
@@ -51,23 +58,26 @@ class LandingPage extends Component {
                     </form>
                     </div>
                 </div>
-                        { this.state.recipes.map(recipe => 
-                            <Container>
-                                <Row>
-                                    <Col sm="4">
-                                        <Card className="Card">
-                                            <CardImg top width="100%" src={"https://spoonacular.com/recipeImages/" + recipe.image} alt="Card image cap" />
-                                            <CardBody>
-                                                <CardTitle><a href={recipe.sourceUrl}>{recipe.title}</a></CardTitle>
-                                                <CardSubtitle>Ready in : {recipe.readyInMinutes} minutes</CardSubtitle>
-                                                <CardText>{recipe.ingredients}</CardText>
-                                                <Button onClick={this.addRecipe}>Save</Button>
-                                            </CardBody>
-                                        </Card>
-                                    </Col>
-                                </Row> 
-                            </Container>                   
+
+                    <div>
+                        { this.state.recipes.map(recipe => {
+                            console.log(recipe.sourceUrl)
+                                return  <CardColumns>
+                                            <Card className="Card">
+                                                <CardImg top width="100%" src={"https://spoonacular.com/recipeImages/" + recipe.image} alt="Card image cap" />
+                                                <CardBody>
+                                                    <a href="#" onClick={(e) => { e.preventDefault(); this.goToRecipe(recipe.id)}}><CardTitle>{recipe.title}</CardTitle></a>
+                                                    <CardSubtitle>Ready in : {recipe.readyInMinutes} minutes</CardSubtitle>
+                                                    <CardText>{recipe.ingredients}</CardText>
+                                                    <Button onClick={this.addRecipe}>Save</Button>
+                                                </CardBody>
+                                            </Card>
+                                        </CardColumns>
+
+                                        }              
                         )}
+                    </div>
+
             </div>
         </div>
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './LoginPage.css';
 import Tile from './Tile';
-
+import LandingPage from './LandingPage';
 
 class LoginPage extends Component {
 
@@ -15,26 +15,25 @@ class LoginPage extends Component {
         this.state = {
             user: null,
             signupFormVisible: false,
-            tiles: [
-                {
-                    title: 'Find Recipes',
-                    icon: <img src={require("./search.png")} alt="Find" />
-                },
-                {
-                    title: 'Share Recipes',
-                    icon: <img src={require("./management.png")} alt="Share" />
-                },
-                {
-                    title: 'Save Recipes',
-                    icon: <img src={require("./writing.png")} alt="Save" />
-                }
-            ]
         };
     }
 
     render() {
+
+        let whatever = null;
+
+    if (this.state.user) {
+      whatever = (
+        <div>
+          <LandingPage />
+        </div>
+      );
+    }
+
+
         return (
         <div className="login2-background-container">
+            {whatever}
             <div className="login-form">
                 {this.state.user ? (
                     <div className="user">
@@ -76,11 +75,6 @@ class LoginPage extends Component {
                 )
                 }
             </div>
-            <div className="tiles">
-                    {this.state.tiles.map(tile => 
-                    <Tile data={tile} />
-                    )}
-                </div>
         </div>
         );
     }
@@ -136,6 +130,7 @@ class LoginPage extends Component {
             console.log(res);
         })
         .then((res) => {
+            sessionStorage.setItem('LoggedIn', true)
         })
         .catch((res) => {
             console.log(res);

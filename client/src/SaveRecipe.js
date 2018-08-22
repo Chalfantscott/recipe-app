@@ -13,17 +13,33 @@ class SaveRecipe extends Component {
             step2: '',
             step3: '',
             step4: '',
-            step5: ''
+            step5: '',
+            dbrecipe: []
         }
+    }
+
+    componentDidMount() {
+        this.loadRecipe()
     }
 
     submitHandler = (event) => {
         event.preventDefault();
         console.log(this.state)
         axios.post('/api/recipes/save', this.state).then((response)=> {
-            console.log('success');
+            this.loadRecipe()
         })
         
+      }
+
+      loadRecipe() {
+          axios.get('http://localhost:3001/api/recipes/list')
+          .then(res => {
+              this.setState({
+                dbrecipe: res.data
+              })
+          }).then(check => {
+              console.log(this.state.dbrecipe)
+          })
       }
       
     render() {
@@ -55,7 +71,24 @@ class SaveRecipe extends Component {
                         </Col>
                     </Row>
                 </div>
-                <div className="saved-recipe-cards-container"></div>
+                <div className="saved-recipe-cards-container">
+                { this.state.dbrecipe.map(recipe => {
+                            console.log(recipe.sourceUrl)
+                                return  <CardColumns>
+                                            <Card className="Card">
+                                                <CardImg top width="100%" src={"https://spoonacular.com/recipeImages/" + recipe.image} alt="Card image cap" />
+                                                <CardBody>
+                                                    <a href="#" onClick={(e) => { e.preventDefault(); this.goToRecipe(recipe.id)}}><CardTitle>{recipe.title}</CardTitle></a>
+                                                    <CardSubtitle>Ready in : {recipe.readyInMinutes} minutes</CardSubtitle>
+                                                    <CardText>{recipe.ingredients}</CardText>
+                                                    <Button onClick={this.addRecipe}>Save</Button>
+                                                </CardBody>
+                                            </Card>
+                                        </CardColumns>
+
+                                        }              
+                        )}
+                </div>
                
             </div>
         )

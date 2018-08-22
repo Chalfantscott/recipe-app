@@ -22,4 +22,21 @@ router.get('/', function(req, res, next) {
     }  
 });
 
+router.get('/go', function(req, res, next) {
+    console.log(req.query)
+        axios.get(`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${req.query.id}/information`,
+            {
+                headers: {
+                    "X-Mashape-Key": process.env.API_KEY
+                }
+            }
+        )
+        .then(result => {
+            res.json(result.data.sourceUrl)
+         })
+         .catch((error) => {
+            res.json(error)
+         })  
+});
+
 module.exports = router;
