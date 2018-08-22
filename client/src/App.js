@@ -3,7 +3,6 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import LandingPage from './LandingPage';
 import { Route, Switch } from 'react-router-dom'; 
-import Tile from './Tile';
 import MyRecipes from './MyRecipes';
 import LoginPage from './LoginPage';
 import { Link } from 'react-router-dom';
@@ -32,12 +31,12 @@ class App extends Component {
           <Link to='./about'>About</Link>
         </div>
         <Switch>
+          <Route path='/' component={LandingPage}/>
           <Route path='/saverecipe' component={SaveRecipe} />
           <Route path='/about' component={About}/>
           <Route path='/apirecipes' component={MyRecipes}/>
           <Route path='/login' render={(props) => <LoginPage {...props} setLoggedIn={this.setLoggedIn.bind(this)} setLoggedOut={this.setLoggedOut.bind(this)} />}/>
-          <Route path='/' component={LandingPage}/>
-          <Route path='/tile' component={Tile}/>
+          
         </Switch>
         <div className="footer">
           <Link to='./login'>Contact us</Link>

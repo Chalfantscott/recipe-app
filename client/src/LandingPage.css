@@ -7,6 +7,12 @@
     background-size: cover;
     height: 70vh;
 }
+.app-statement {
+  font-family: 'Bradley Hand', cursive;
+  font-weight: bolder;
+  top: 60%;
+  right: 50%;
+}
 .main-content {
     width: 100%;
     height: 300px;

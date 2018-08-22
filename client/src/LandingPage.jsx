@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './LandingPage.css';
-import Tile from './Tile';
 import axios from 'axios'
 import { CardColumns, Container, Row, Col, Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button } from 'reactstrap';
@@ -49,6 +48,7 @@ class LandingPage extends Component {
             <div className="LandingPage-container">
                 <div className="homepage-header">
                     <div className="text-block">
+                    <h2 className="app-statement">Find Recipes. Save Recipes. </h2>
                     <p1 className="searchRecipes">search for recipes</p1>
                     <form id="recipeSearch" onSubmit={this.search}>
                         <div className="form-field">
@@ -72,9 +72,7 @@ class LandingPage extends Component {
                                                     <Button onClick={this.addRecipe}>Save</Button>
                                                 </CardBody>
                                             </Card>
-                                        </CardColumns>
-
-                                        }              
+                                        </CardColumns> }              
                         )}
                     </div>
 

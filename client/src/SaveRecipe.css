@@ -2,10 +2,16 @@
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
     width: 40vw;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
+    background-color: white;
 }
 .savedRecipeContainer input {
     width: 30vw;
     margin: 0 auto;
 }
+.savedRecipeContainer {
+background-image: url("brooke-lark-295590-unsplash.jpg");
+}
+
+    

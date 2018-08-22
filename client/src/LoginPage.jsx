@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './LoginPage.css';
-import Tile from './Tile';
 import LandingPage from './LandingPage';
 
 class LoginPage extends Component {
