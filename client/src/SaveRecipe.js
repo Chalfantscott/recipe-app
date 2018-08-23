@@ -69,7 +69,7 @@ class SaveRecipe extends Component {
                                         <Input onChange={e => this.setState({ step4: e.target.value })} value={this.state.Step4} type="text" name="Step4" id="recipe-step4" placeholder="step 4" />
                                         <Label for="step1">Step 5:</Label>
                                         <Input onChange={e => this.setState({ step5: e.target.value })} value={this.state.Step5} type="text" name="Step5" id="recipe-step5" placeholder="step 5" />
-                                        <Button bsStyle="primary" className="saveRecipeButton" type="submit" >Save</Button>
+                                        <Button color="primary" className="saveRecipeButton" type="submit" >Save</Button>
                                     </FormGroup>
                                 </Form>
                             </Col>
