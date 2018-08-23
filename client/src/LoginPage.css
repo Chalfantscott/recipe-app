@@ -31,4 +31,7 @@ input {
         height: 60%
     }
 }
+.user-logout {
+    float:right;
+}
 

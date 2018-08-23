@@ -10,8 +10,8 @@
     width: 30vw;
     margin: 0 auto;
 }
-.savedRecipeContainer {
-background-image: url("brooke-lark-295590-unsplash.jpg");
+.saved-recipe-cards-container {
+border-top: 1px solid #ccc;
 }
 
     

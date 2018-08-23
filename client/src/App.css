@@ -8,12 +8,12 @@
   font-family: 'Bradley Hand', cursive;
   font-weight: bolder;
 }
-.app
-.tiles {
-  background-color: white;
+.link-to-saverecipe {
+  float: right;
 }
 .main-header {
   height: 50px;
+  border-bottom: solid 1px #ccc;
 }
 .main-header a {
   margin-right: 10px;
@@ -33,4 +33,8 @@
 }
 .footer a {
   margin: 20px;
+  color: rgb(117, 117, 117);
+  padding: 6px;
+  font-weight: bold;
+
 }

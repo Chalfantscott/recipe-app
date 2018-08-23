@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './LandingPage.css';
 import axios from 'axios'
-import { CardColumns, Container, Row, Col, Card, CardImg, CardText, CardBody,
+import { CardColumns, Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button } from 'reactstrap';
 
 
@@ -29,7 +29,7 @@ class LandingPage extends Component {
         })
     }
     componentDidMount() {
-        axios.get("/api/search?number=2&query=tasty")
+        axios.get("/api/search?number=6&query=tasty")
             .then(res => {
                 console.log(res.data)
                 const state = {...this.state};
@@ -49,31 +49,33 @@ class LandingPage extends Component {
                 <div className="homepage-header">
                     <div className="text-block">
                     <h2 className="app-statement">Find Recipes. Save Recipes. </h2>
-                    <p1 className="searchRecipes">search for recipes</p1>
                     <form id="recipeSearch" onSubmit={this.search}>
-                        <div className="form-field">
-                            <input name="searchParams" type="text" />
+                        <div className="form-field-recipe-search">
+                            <input name="searchParams" type="text" placeholder="search for recipes"/>
                         </div>
-                        <button className="btn btn-primary" type="submit">Search</button>
+                        <Button color="primary" className="search-btn btn-primary" type="submit">Search</Button>
                     </form>
                     </div>
                 </div>
 
                     <div>
-                        { this.state.recipes.map(recipe => {
-                            console.log(recipe.sourceUrl)
-                                return  <CardColumns>
+                    <CardColumns>
+                        {this.state.recipes.map(recipe => {
+                                return ( 
+                                    
                                             <Card className="Card">
                                                 <CardImg top width="100%" src={"https://spoonacular.com/recipeImages/" + recipe.image} alt="Card image cap" />
                                                 <CardBody>
                                                     <a href="#" onClick={(e) => { e.preventDefault(); this.goToRecipe(recipe.id)}}><CardTitle>{recipe.title}</CardTitle></a>
                                                     <CardSubtitle>Ready in : {recipe.readyInMinutes} minutes</CardSubtitle>
                                                     <CardText>{recipe.ingredients}</CardText>
-                                                    <Button onClick={this.addRecipe}>Save</Button>
+                                                    <Button color="primary" onClick={this.addRecipe}>Save</Button>
                                                 </CardBody>
                                             </Card>
-                                        </CardColumns> }              
+                                             )
+                                        }              
                         )}
+                        </CardColumns>
                     </div>
 
             </div>
@@ -85,7 +87,7 @@ class LandingPage extends Component {
 
     search = (event) => {
         event.preventDefault();
-        axios.get("/api/search?number=3&query=" + event.target.searchParams.value)
+        axios.get("/api/search?number=10&query=" + event.target.searchParams.value)
         .then(res => {
             const state = {...this.state};
             state.recipes = res.data.results;

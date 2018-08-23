@@ -10,6 +10,9 @@ module.exports = {
         title: {
           type: Sequelize.STRING
         },
+        ingredients: {
+          type: Sequelize.STRING
+        },
         preparetime: {
           type: Sequelize.INTEGER
         },

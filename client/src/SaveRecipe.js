@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "./SaveRecipe.css";
 import axios from 'axios';
-import { Row, CardColumns, Container, Col, Card, CardImg, CardText, CardBody, Label, Input, Button,
+import { Row, CardColumns, Col, Card, CardText, CardBody, Label, Input, Button,
     CardTitle, CardSubtitle, Form, FormGroup } from 'reactstrap';
 
 class SaveRecipe extends Component {
@@ -9,6 +9,7 @@ class SaveRecipe extends Component {
         super();
         this.state = {
             title: '',
+            ingredients: '',
             preparetime: '',
             step1: '',
             step2: '',
@@ -54,6 +55,8 @@ class SaveRecipe extends Component {
                                     <FormGroup>
                                         <Label for="title">Title</Label>
                                         <Input onChange={e => this.setState({ title: e.target.value })} value={this.state.title} type="text" name="title" id="recipe-title" placeholder="title" />
+                                        <Label for="ingredients">ingredients</Label>
+                                        <Input onChange={e => this.setState({ ingredients: e.target.value })} value={this.state.ingredients} type="text" name="recipe-ingredients" id="recipe-ingredients" placeholder="ingredients" />
                                         <Label for="preparetime">Prepare Time</Label>
                                         <Input onChange={e => this.setState({ preparetime: e.target.value })} value={this.state.preparetime} type="text" name="recipe-preparetime" id="recipe-preparetime" placeholder="enter number of minutes" />
                                         <Label for="step1">Step 1:</Label>
@@ -74,24 +77,24 @@ class SaveRecipe extends Component {
                     </div>
                 
                 <div className="saved-recipe-cards-container">
+                <CardColumns>
                 { this.state.dbrecipe.map(recipe => {
-                            console.log(recipe.sourceUrl)
-                                return  <CardColumns>
-                                            <Card className="Card">
+                                return  <Card>
                                                 <CardBody>
                                                     <CardTitle>{recipe.title}</CardTitle>
-                                                    <CardSubtitle>Ready in : {recipe.preparetime} minutes</CardSubtitle>
-                                                    <CardText>{recipe.step1}</CardText>
-                                                    <CardText>{recipe.step2}</CardText>
-                                                    <CardText>{recipe.step3}</CardText>
-                                                    <CardText>{recipe.step4}</CardText>
-                                                    <CardText>{recipe.step5}</CardText>
+                                                    <CardSubtitle>Ready in: {recipe.preparetime} minutes</CardSubtitle>
+                                                    <CardText>{recipe.ingredients}</CardText>
+                                                    <CardText>1. {recipe.step1}</CardText>
+                                                    <CardText>2. {recipe.step2}</CardText>
+                                                    <CardText>3. {recipe.step3}</CardText>
+                                                    <CardText>4. {recipe.step4}</CardText>
+                                                    <CardText>5. {recipe.step5}</CardText>
+                                                    <Button color="primary">export</Button>
                                                 </CardBody>
                                             </Card>
-                                        </CardColumns>
-
                                         }              
                         )}
+                        </CardColumns>
                 </div>
                
             </div>

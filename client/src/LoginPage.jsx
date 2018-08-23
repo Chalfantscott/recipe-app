@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './LoginPage.css';
-import LandingPage from './LandingPage';
+import {Link} from 'react-router-dom';
+import {Button} from 'reactstrap';
 
 class LoginPage extends Component {
 
@@ -19,30 +20,21 @@ class LoginPage extends Component {
 
     render() {
 
-        let whatever = null;
-
-    if (this.state.user) {
-      whatever = (
-        <div>
-          <LandingPage />
-        </div>
-      );
-    }
-
 
         return (
         <div className="login2-background-container">
-            {whatever}
             <div className="login-form">
                 {this.state.user ? (
-                    <div className="user">
+                    <div className="user-logout">
                         <span className="username">User: {this.state.user.username}</span>
-                        <button onClick={this.logout}>Log Out</button>
+                        <Button color="primary" onClick={this.logout}>Log Out</Button>
+                        <Link to="/">start searching</Link>
+
                     </div>
                 ) : (
                     <div className="user-form">
-                        <button onClick={this.showSignupForm} disabled={this.state.signupFormVisible}>Register</button>
-                        <button onClick={this.showLoginForm} disabled={!this.state.signupFormVisible}>Login</button>
+                        <Button color="primary" onClick={this.showSignupForm} disabled={this.state.signupFormVisible}>Register</Button>
+                        <Button color="primary" onClick={this.showLoginForm} disabled={!this.state.signupFormVisible}>Login</Button>
                         {this.state.signupFormVisible ? (
                             <form id="registerForm" onSubmit={this.register}>
                                 <h2>Register</h2>
@@ -54,7 +46,7 @@ class LoginPage extends Component {
                                     <label htmlFor="registerPassword">Password:</label>
                                     <input name="registerPassword" type="password" required />
                                 </div>
-                                <button type="submit">Register</button>
+                                <Button color="primary" type="submit">Register</Button>
                             </form>
                         ) : (
                             <form id="loginForm" onSubmit={this.login}>
@@ -67,7 +59,7 @@ class LoginPage extends Component {
                                     <label htmlFor="password">Password:</label>
                                     <input name="password" type="password" required />
                                 </div>
-                                <button type="submit">Login</button>
+                                <Button color="primary" type="submit">Login</Button>
                             </form>
                         )}
                     </div>

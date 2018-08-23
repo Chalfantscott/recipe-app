@@ -3,13 +3,17 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import LandingPage from './LandingPage';
 import { Route, Switch } from 'react-router-dom'; 
-import MyRecipes from './MyRecipes';
 import LoginPage from './LoginPage';
 import { Link } from 'react-router-dom';
-import About from './About.js';
 import SaveRecipe from './SaveRecipe';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      user: null,
+    }
+  }
   setLoggedIn(user) {
     this.setState({
       loggedIn: user
@@ -22,21 +26,16 @@ class App extends Component {
   }
 
   render() {
-
     return (
       <div className="App">
         <div className="main-header">
           <h2 className="app-title-header">Like Mama Made</h2>
-          <Link to='./apirecipes'>Explore</Link>
-          <Link to='./about'>About</Link>
+          <Link to="/saverecipe">My Recipe Book</Link>
         </div>
         <Switch>
-          <Route path='/' component={LandingPage}/>
-          <Route path='/saverecipe' component={SaveRecipe} />
-          <Route path='/about' component={About}/>
-          <Route path='/apirecipes' component={MyRecipes}/>
-          <Route path='/login' render={(props) => <LoginPage {...props} setLoggedIn={this.setLoggedIn.bind(this)} setLoggedOut={this.setLoggedOut.bind(this)} />}/>
-          
+        <Route path='/login' render={(props) => <LoginPage {...props} setLoggedIn={this.setLoggedIn.bind(this)} setLoggedOut={this.setLoggedOut.bind(this)} />}/>
+        <Route path='/saverecipe' component={SaveRecipe} />
+        <Route path='/' component={LandingPage}/>
         </Switch>
         <div className="footer">
           <Link to='./login'>Contact us</Link>
