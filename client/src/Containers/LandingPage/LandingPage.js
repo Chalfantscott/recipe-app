@@ -59,22 +59,29 @@ class LandingPage extends Component {
                 </div>
 
                     <div>
-                    <CardColumns>
-                        {this.state.recipes.map(recipe => {
-                                return ( 
-                                    
-                                            <Card className="Card">
-                                                <CardImg top width="100%" src={"https://spoonacular.com/recipeImages/" + recipe.image} alt="Card image cap" />
-                                                <CardBody>
-                                                    <a href="#" onClick={(e) => { e.preventDefault(); this.goToRecipe(recipe.id)}}><CardTitle>{recipe.title}</CardTitle></a>
-                                                    <CardSubtitle>Ready in : {recipe.readyInMinutes} minutes</CardSubtitle>
-                                                    <CardText>{recipe.ingredients}</CardText>
-                                                    <Button color="primary" onClick={this.addRecipe}>Save</Button>
-                                                </CardBody>
-                                            </Card>
-                                             )
-                                        }              
-                        )}
+                        <CardColumns>
+                            {this.state.recipes.map(recipe => {
+                                    return ( 
+                                        
+                                                <Card 
+                                                    className="Card"
+                                                    key={recipe.id}>
+                                                    <CardImg top width="100%" 
+                                                                src={"https://spoonacular.com/recipeImages/" + recipe.image} 
+                                                                alt="Card image cap" />
+                                                    <CardBody>
+                                                        <a onClick={(e) => { e.preventDefault(); this.goToRecipe(recipe.id)}}>
+                                                            <CardTitle>{recipe.title}</CardTitle>
+                                                        </a>
+                                                        <CardSubtitle>Ready in : {recipe.readyInMinutes} minutes</CardSubtitle>
+                                                        <CardText>{recipe.ingredients}</CardText>
+                                                        <Button 
+                                                            color="primary" 
+                                                            onClick={this.addRecipe}>Save</Button>
+                                                    </CardBody>
+                                                </Card>
+                                            )
+                            })}
                         </CardColumns>
                     </div>
 

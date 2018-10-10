@@ -79,7 +79,7 @@ class SaveRecipe extends Component {
                 <div className="saved-recipe-cards-container">
                 <CardColumns>
                 { this.state.dbrecipe.map(recipe => {
-                                return  <Card>
+                                return  <Card key={recipe.id}>
                                                 <CardBody>
                                                     <CardTitle>{recipe.title}</CardTitle>
                                                     <CardSubtitle>Ready in: {recipe.preparetime} minutes</CardSubtitle>

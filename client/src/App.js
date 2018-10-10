@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import LandingPage from './LandingPage';
+import LandingPage from './Containers/LandingPage/LandingPage';
 import { Route, Switch } from 'react-router-dom'; 
-import LoginPage from './LoginPage';
+import LoginPage from './Components/LoginPage/LoginPage';
 import { Link } from 'react-router-dom';
-import SaveRecipe from './SaveRecipe';
+import SaveRecipe from './Components/SaveRecipe/SaveRecipe';
 
 class App extends Component {
   constructor(props){

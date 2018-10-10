@@ -3,7 +3,7 @@
     height: 30px;
 }
 .homepage-header {
-    background-image: url('./brooke-lark-385507-unsplash.jpg');
+    background-image: url('../../brooke-lark-385507-unsplash.jpg');
     background-size: cover;
     height: 70vh;
     border: 2px solid, #eee;

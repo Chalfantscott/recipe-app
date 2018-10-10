@@ -6,7 +6,7 @@
 }
 .login2-background-container {
     position: relative;
-    background-image: url('./brooke-lark-385507-unsplash.jpg');
+    background-image: url('../../brooke-lark-385507-unsplash.jpg');
     background-size: cover;
     height: 70vh;
 }
@@ -31,7 +31,3 @@ input {
         height: 60%
     }
 }
-.user-logout {
-    float:right;
-}
-
